@@ -4,6 +4,7 @@
   </head>
 
   <body>
+  	<center><h1><%= title %></h1></center>
 <script type="text/javascript">
   $(document).ready(function() {
     $('#search').click(function() { // When the search button is pushed
@@ -12,15 +13,16 @@
         url: 'https://api.chain.com/v1/bitcoin/addresses/' + addr,
         type: 'GET',
         beforeSend: function (xhr) {
-          xhr.setRequestHeader ('Authorization', 'Basic '+btoa('Enter API Key'));
+          xhr.setRequestHeader ('Authorization', 'Basic '+btoa('API Key'));
         },
         success: function(data) {
           var BTCBalance = data.balance / 100000000.0;
           var BTCSent = data.sent / 100000000.0;
           var BTCReceived = data.received / 100000000.0;
 
-          $('#address').text("Here is the Wallet Address: " + addr);
+          //$('#address').text("Here is the Wallet Address: " + addr);
           $('#results').empty();
+          $('#lines').append("------");
           $('#balance').append("Balance: " + BTCBalance + " BTC");
           $('#sent').append("Sent: " + BTCSent + " BTC");
           $('#received').append("Received: " + BTCReceived + " BTC");
@@ -36,10 +38,11 @@
 <br />
 <center><input name="WalletAddress" size="42"></input>
 <button id="search">Search</button><br />
-  <div id="address"></div><br />
+  <!-- <div id="address"></div><br /> -->
+  <div id="lines"></div>
   <div id="balance"></div><br />
   <div id="sent"></div><br />
   <div id="received"></div><br />
-	<div id="results"></div><br />
+  <div id="results"></div><br />
 
 </body></html>

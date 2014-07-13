@@ -24,10 +24,10 @@
 
           //$('#address').text("Here is the Wallet Address: " + addr);
           $('#results').empty();
-          $('#lines').append("------");
-          $('#balance').append("Balance: " + BTCBalance + " BTC");
-          $('#sent').append("Sent: " + BTCSent + " BTC");
-          $('#received').append("Received: " + BTCReceived + " BTC");
+          $('#lines').append("<br />");
+          $('#balance').append("<h3>Balance: " + BTCBalance + " BTC</h3>");
+          $('#sent').append("<h3>Sent: " + BTCSent + " BTC</h3>");
+          $('#received').append("<h3>Received: " + BTCReceived + " BTC</h3>");
         },
         error: function(req, msg, err) {
           console.log(err);

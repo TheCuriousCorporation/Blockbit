@@ -11,6 +11,7 @@
   $(document).ready(function() {
     $('#search').click(function() { // When the search button is pushed
       var addr = $('input[name=WalletAddress]').val(); // The address that is typed in should be assigned to the variable "addr"
+      var symbol = "/images/Symbol.jpg";
       $.ajax({
         url: 'https://api.chain.com/v1/bitcoin/addresses/' + addr,
         type: 'GET',
@@ -25,9 +26,9 @@
           //$('#address').text("Here is the Wallet Address: " + addr);
           $('#results').empty();
           $('#lines').append("<br />");
-          $('#balance').append("<h3>Balance: " + BTCBalance + " BTC</h3>");
-          $('#sent').append("<h3>Sent: " + BTCSent + " BTC</h3>");
-          $('#received').append("<h3>Received: " + BTCReceived + " BTC</h3>");
+          $('#balance').append("<h3>Balance: " + BTCBalance + " <img src='/images/Symbol.jpg' /></h3>");
+          $('#sent').append("<h3>Sent: " + BTCSent + " <img src='/images/Symbol.jpg' /></h3>");
+          $('#received').append("<h3>Received: " + BTCReceived + " <img src='/images/Symbol.jpg' /></h3>");
         },
         error: function(req, msg, err) {
           console.log(err);
@@ -39,14 +40,14 @@
 <br />
 <br />
 <center><input name="WalletAddress" size="50" placeholder="Enter any bitcoin address here ... "></input>
-<button id="search">Search</button><br />
+<button id="search" style="width:75px">Search</button>
+  <button style="width:75px"><a href="/" id="clear">Clear</a></button><br />
   <!-- <div id="address"></div><br /> -->
   <div id="lines"></div>
   <div id="balance"></div><br />
   <div id="sent"></div><br />
   <div id="received"></div><br />
   <div id="results"></div><br />
-  <a href="/" id="clear">Clear results</a>
   <footer>
   <p>Powered by <a href="http://www.chain.com">Chain.com</a>
   <p>Made by the <a href="http://www.github.com/thecuriouscorporation">The Curious Corporation</a></p>  

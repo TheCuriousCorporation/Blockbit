@@ -19,6 +19,11 @@ footer {
     width: 100%;
     overflow:hidden;
 }
+
+a {
+	color: #000000;
+	text-decoration: none;
+}
 /*
 
 Sticky Footer by Ryan Fait

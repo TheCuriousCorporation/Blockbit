@@ -5,6 +5,7 @@
   </head>
 
   <body>
+    <img alt="full-screen background image" src="/images/blurred2.jpg" id="full-screen-background-image" />
   	<center><h1><%= title %></h1></center>
     <center><p><%= find %></p></center>
 <script type="text/javascript">
@@ -26,9 +27,9 @@
           //$('#address').text("Here is the Wallet Address: " + addr);
           $('#results').empty();
           $('#lines').append("<br />");
-          $('#balance').append("<h3>Balance: " + BTCBalance + " <img src='/images/Symbol.jpg' /></h3>");
-          $('#sent').append("<h3>Sent: " + BTCSent + " <img src='/images/Symbol.jpg' /></h3>");
-          $('#received').append("<h3>Received: " + BTCReceived + " <img src='/images/Symbol.jpg' /></h3>");
+          $('#balance').append("<h3>Balance: $" + BTCBalance + "</h3>");
+          $('#sent').append("<h3>Sent: $" + BTCSent + " <img src='/images/CircleBitcoin.png' /></h3>");
+          $('#received').append("<h3>Received: $" + BTCReceived + "</h3>");
         },
         error: function(req, msg, err) {
           console.log(err);
@@ -44,8 +45,8 @@
   <button style="width:75px"><a href="/" id="clear">Clear</a></button><br />
   <!-- <div id="address"></div><br /> -->
   <div id="lines"></div>
-  <div id="balance"></div><br />
-  <div id="sent"></div><br />
+  <div id="balance"></div>
+  <div id="sent"></div>
   <div id="received"></div><br />
   <div id="results"></div><br />
   <footer>

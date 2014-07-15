@@ -36,7 +36,7 @@
       url: 'https://api.chain.com/v1/bitcoin/addresses/' + addr,
       type: 'GET',
       beforeSend: function (xhr) {
-        xhr.setRequestHeader ('Authorization', 'Basic '+btoa('Private Key Here'));
+        xhr.setRequestHeader ('Authorization', 'Basic '+btoa('05e17b4bd6bf6ecd3df2947c027ce523'));
       },
       success: function(data) {
         var BTCBalance = data.balance / 100000000.0;
@@ -48,7 +48,7 @@
         $('#balance').append("<h3>A balance of " + BTCBalance + ".</h3>");
         $('#sent').append("<h3>There were " + BTCSent + " coins sent. <!--<img src='/images/CircleBitcoin.png' />--></h3>");
         $('#received').append("<h3>and " + BTCReceived + " coins received.</h3>");
-        //$('#pic').append("<img src='/images/CircleBitcoin.png' />");
+        $('#pic').append("<img src='/images/CircleBitcoin.png' />");
         //$('#address').append("<h3>On the wallet with address: " + addr + "</h3>");
       },
       error: function(req, msg, err) {
@@ -63,15 +63,14 @@
 <center><input name="WalletAddress" size="60" placeholder="Enter any bitcoin address here ... "></input>
 <button id="search" style="width:75px">Search</button>
   <button style="width:75px"><a href="/" id="clear">Clear</a></button><br />
-  <br />
   <div id="there"></div>
   <div id="balance"></div>
   <div id="sent"></div>
   <div id="received"></div><br />
-  <!--<div id="pic"></div>-->
+  <div id="pic"></div>
   <!--<div id="address"></div><br />-->
   <footer>
   <p>Powered by <a href="http://www.chain.com" target="_blank">Chain.com</a>
-  <p>Made by the Curious Corporation</a></p>
+  <p>Made by <a href="http://github.com/TheCuriousCorporation" target="_blank"> the Curious Corporation</a></p>
   </footer>
 </body></html>

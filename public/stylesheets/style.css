@@ -53,18 +53,20 @@ h3, p {
 	font-family: 'Lato', sans-serif;
 }
 
+p {
+	font-size: 1.25em;
+}
+
 h1 {
 	color: #FFFFFF;
 	font-family: 'Arvo', serif;
+	font-size: 3.25em;
 }
 
-.float-left {
+.left-hand {
 	float: left;
 }
 
-.float-right {
-	float: right;
-}
 
 /*
 

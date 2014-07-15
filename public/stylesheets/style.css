@@ -48,10 +48,23 @@ a {
 	text-decoration: none;
 }
 
-h1, h3, p {
+h3, p {
 	color: #FFFFFF;
+	font-family: 'Lato', sans-serif;
 }
 
+h1 {
+	color: #FFFFFF;
+	font-family: 'Arvo', serif;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
 
 /*
 

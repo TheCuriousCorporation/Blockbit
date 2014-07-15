@@ -1,56 +1,77 @@
-<html><head>
+<html>
+<title><%= title %></title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="/stylesheets/style.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700italic' rel='stylesheet' type='text/css'>
+    <!-- Google Analytics Script -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-52831715-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+
   </head>
 
   <body>
     <img alt="full-screen background image" src="/images/blurred2.jpg" id="full-screen-background-image" />
   	<center><h1><%= title %></h1></center>
     <center><p><%= find %></p></center>
-<script type="text/javascript">
-  $(document).ready(function() {
+    <script type="text/javascript">
+    $(document).ready(function() {
     $('#search').click(function() { // When the search button is pushed
-      var addr = $('input[name=WalletAddress]').val(); // The address that is typed in should be assigned to the variable "addr"
-      var symbol = "/images/Symbol.jpg";
-      $.ajax({
-        url: 'https://api.chain.com/v1/bitcoin/addresses/' + addr,
-        type: 'GET',
-        beforeSend: function (xhr) {
-          xhr.setRequestHeader ('Authorization', 'Basic '+btoa('05e17b4bd6bf6ecd3df2947c027ce523'));
-        },
-        success: function(data) {
-          var BTCBalance = data.balance / 100000000.0;
-          var BTCSent = data.sent / 100000000.0;
-          var BTCReceived = data.received / 100000000.0;
+    var addr = $('input[name=WalletAddress]').val(); // The address that is typed in should be assigned to the variable "addr"
+    var symbol = "/images/Symbol.jpg";
+    $.ajax({
+      url: 'https://api.chain.com/v1/bitcoin/addresses/' + addr,
+      type: 'GET',
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader ('Authorization', 'Basic '+btoa('05e17b4bd6bf6ecd3df2947c027ce523'));
+      },
+      success: function(data) {
+        var BTCBalance = data.balance / 100000000.0;
+        var BTCSent = data.sent / 100000000.0;
+        var BTCReceived = data.received / 100000000.0;
 
-          //$('#address').text("Here is the Wallet Address: " + addr);
-          $('#results').empty();
-          $('#lines').append("<br />");
-          $('#balance').append("<h3>Balance: $" + BTCBalance + "</h3>");
-          $('#sent').append("<h3>Sent: $" + BTCSent + " <img src='/images/CircleBitcoin.png' /></h3>");
-          $('#received').append("<h3>Received: $" + BTCReceived + "</h3>");
-        },
-        error: function(req, msg, err) {
-          console.log(err);
-        }
-      });
+        $("#there").append("<h3>There is: </h3>")
+        $('#break').append("<br />");
+        $('#balance').append("<h3>A balance of " + BTCBalance + ".</h3>");
+        $('#sent').append("<h3>There were " + BTCSent + " coins sent. <!--<img src='/images/CircleBitcoin.png' />--></h3>");
+        $('#received').append("<h3>and " + BTCReceived + " coins received.</h3>");
+        //$('#pic').append("<img src='/images/CircleBitcoin.png' />");
+        //$('#address').append("<h3>On the wallet with address: " + addr + "</h3>");
+      },
+      error: function(req, msg, err) {
+        console.log(err);
+      }
     });
   });
+});
 </script>
 <br />
 <br />
-<center><input name="WalletAddress" size="50" placeholder="Enter any bitcoin address here ... "></input>
+<center><input name="WalletAddress" size="60" placeholder="Enter any bitcoin address here ... "></input>
 <button id="search" style="width:75px">Search</button>
   <button style="width:75px"><a href="/" id="clear">Clear</a></button><br />
-  <!-- <div id="address"></div><br /> -->
-  <div id="lines"></div>
+  <br />
+  <div id="there"></div>
   <div id="balance"></div>
   <div id="sent"></div>
   <div id="received"></div><br />
-  <div id="results"></div><br />
+  <!--<div id="pic"></div>-->
+  <!--<div id="address"></div><br />-->
   <footer>
-  <p>Powered by <a href="http://www.chain.com">Chain.com</a>
-  <p>Made by the <a href="http://www.github.com/thecuriouscorporation">The Curious Corporation</a></p>  
+  <p>Powered by <a href="http://www.chain.com" target="_blank">Chain.com</a>
+  <p>Made by the <a href="http://www.github.com/thecuriouscorporation" target="_blank">The Curious Corporation</a></p>
   </footer>
 </body></html>

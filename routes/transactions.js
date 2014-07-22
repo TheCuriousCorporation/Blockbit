@@ -4,7 +4,7 @@
  */
 
 exports.list = function(req, res){
-  res.send("transactions.ejs", {
+  res.render("transactions.ejs", {
   	title: 'Blockbit',
   	field: 'Find any transactions on the Blockchain'
   });

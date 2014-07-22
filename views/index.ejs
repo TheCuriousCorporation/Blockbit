@@ -20,13 +20,14 @@
     ga('send', 'pageview');
 
     </script>
-
+    <!-- End Google Analytics Script -->
   </head>
 
   <body>
     <img alt="full-screen background image" src="/images/blurred2.jpg" id="full-screen-background-image" />
   	<center><h1><%= title %></h1></center>
     <center><p><%= find %></p></center>
+    <!--<center><a href="/transactions">transactions</a></center>-->
     <script type="text/javascript">
     $(document).ready(function() {
     $('#search').click(function() { // When the search button is pushed
@@ -39,6 +40,7 @@
         xhr.setRequestHeader ('Authorization', 'Basic '+btoa('05e17b4bd6bf6ecd3df2947c027ce523'));
       },
       success: function(data) {
+        var BTChash = data.hash;
         var BTCBalance = data.balance / 100000000.0;
         var BTCSent = data.sent / 100000000.0;
         var BTCReceived = data.received / 100000000.0;
@@ -46,10 +48,9 @@
         $("#there").append("<h3>There is: </h3>")
         $('#break').append("<br />");
         $('#balance').append("<h3>A balance of " + BTCBalance + ".</h3>");
-        $('#sent').append("<h3>There were " + BTCSent + " coins sent </h3>");
-        $('#received').append("<h3>and " + BTCReceived + " coins received.</h3>");
+        $('#sent').append("<h3>There were " + BTCSent + " coins sent and " + BTCReceived + " coins received.</h3>");
+        $('#hashdata').append("<h3>The hash is " + BTChash);
         $('#pic').append("<img src='/images/CircleBitcoin.png' />");
-        //$('#address').append("<h3>On the wallet with address: " + addr + "</h3>");
       },
       error: function(req, msg, err) {
         console.log(err);
@@ -66,15 +67,14 @@
   <div id="there"></div>
   <div id="balance"></div>
   <div id="sent"></div>
-  <div id="received"></div><br />
+  <div id="hashdata"></div><br />
   <div id="pic"></div>
-  <!--<div id="address"></div><br />-->
   <br />
   <br />
   <br />
   <footer>
   <p>Powered by <a href="http://www.chain.com" target="_blank">Chain.com</a>
-  <p>Made by <a href="http://github.com/TheCuriousCorporation" target="_blank">The Curious Corporation</a></p>
-  <iframe scrolling="no" style="border: 0; width: 125px; height: 125px;" src="//coinurl.com/get.php?id=28106"></iframe>
+  <p>Made by <a href="http://github.com/TheCuriousCorporation" target="_blank">cponeill</a></p>
+  <iframe scrolling="no" style="border: 0; width: 125px; height: 125px;" src="//coinurl.com/get.php?id=28106"></iframe>  
   </footer>
 </body></html>

@@ -14,7 +14,7 @@ $(document).ready(function(){
         		var BTCSent = data.sent / 100000000.0;
         		var BTCReceived = data.received / 100000000.0;
 
-        		$("#firstline").append("<h3>There is: </h3>")
+        		$("#firstline").append("<h3>There is: </h3>");
         		$('#break').append("<br />");
         		$('#balance').append("<h3>A balance of " + BTCBalance + ".</h3>");
         		$('#sent').append("<h3>There were " + BTCSent + " coins sent and " + BTCReceived + " coins received.</h3>");
@@ -25,5 +25,6 @@ $(document).ready(function(){
 				console.log(err);
 			}
 		});
+		return false;
 	});
 });

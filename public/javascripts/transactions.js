@@ -18,6 +18,9 @@ $(document).ready(function(){ // Enable jQuery
 
   	  	/* Add more code here... for example
   	  	   $('#output').append(output) */
+  	  	var time = output.block_time;
+
+  	  	$('#time').append("<h3>The block time is: " + time + ".</h3>");
   	  },
   	  error: function(req, msg, err) {
   	  	console.log(err); // If there is a problem, yo, this code won't solve it. But it will tell me it's broken.

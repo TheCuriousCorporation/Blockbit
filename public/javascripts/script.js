@@ -18,7 +18,7 @@ $(document).ready(function(){
         		$('#break').append("<br />");
         		$('#balance').append("<h3>A balance of " + BTCBalance + ".</h3>");
         		$('#sent').append("<h3>There were " + BTCSent + " coins sent and " + BTCReceived + " coins received.</h3>");
-        		$('#hashdata').append("<h3>The hash is " + BTChash);
+        		$('#hashdata').append("<h3>The address is " + BTChash);
         		$('#pic').append("<img src='/images/CircleBitcoin.png' />");
 			},
 			error: function(req, msg, err) {

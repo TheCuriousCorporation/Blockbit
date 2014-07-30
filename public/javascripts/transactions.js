@@ -16,11 +16,8 @@ $(document).ready(function(){ // Enable jQuery
   	  success: function(data) {
   	  	var output = data[0]; // Calls the JSON file from Chains API and stores the array in the variable "output". 
 
-  	  	/* Add more code here... for example
-  	  	   $('#output').append(output) */
-  	  	var time = output.block_time;
-
-  	  	$('#time').append("<h3>The block time is: " + time + ".</h3>");
+  	  	/* Add more code here... for example this will call all of the JSON code from the API. */
+  	  	   $('#output').append(output)
   	  },
   	  error: function(req, msg, err) {
   	  	console.log(err); // If there is a problem, yo, this code won't solve it. But it will tell me it's broken.

@@ -9,6 +9,7 @@ exports.index = function(req, res){
   	find: 'Find the amount of any Bitcoin on the Blockchain!',
   	powered: 'Chain.com',
   	made: 'cponeill',
-  	version: 'Version 0.1'
+  	version: 'Current Version: 0.1',
+  	link: 'Transactions'
   });
 };

@@ -7,7 +7,7 @@ $(document).ready(function(){ // Enable jQuery
   	$.ajax({
   	  url: 'https://api.chain.com/v1/bitcoin/addresses/' + addr + '/transactions', // API Call URL.
   	  data: {
-  	  	limit: 2
+  	  	limit: 10
   	  },
   	  type: 'GET',
   	  beforeSend: function (xhr) {
